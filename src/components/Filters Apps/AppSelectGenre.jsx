@@ -1,5 +1,4 @@
-
-export default function AppNavbarSelect({ genre }) {
+export default function AppSelectGenre({ genre }) {
 
     return (
         <option value={genre}>{genre}</option>

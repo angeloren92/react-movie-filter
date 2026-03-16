@@ -14,8 +14,8 @@ function App() {
   ]
   const newSetGenre = Array.from(new Set(movies.map(element => element.genre)))
   newSetGenre.unshift('Tutte le Categorie')
-  const [tempGenre, setTempGenre] = useState('Tutte le Categorie')
   const [filtered, setFiltered] = useState(movies)
+  const [tempGenre, setTempGenre] = useState('Tutte le Categorie')
   const [tempTitle, setTempTitle] = useState('')
 
   return (

@@ -1,16 +1,9 @@
-import { useEffect } from 'react'
-import AppSelect from './AppSelectGenre'
+import AppSelectGenre from './AppSelectGenre'
 
-export default function AppSerchByGenre({ setTempGenre, newSetGenre, tempGenre, setFiltered, movies }) {
-
-    useEffect(() => {
-        if (tempGenre !== 'Tutte le Categorie') {
-            setFiltered(movies.filter(element => element.genre === tempGenre))
-        } else {
-            setFiltered(movies)
-        }
-
-    }, [tempGenre])
+export default function AppSerchByGenre({ 
+    setTempGenre, 
+    newSetGenre, 
+}) {
 
     return (
         <form className="d-flex flex-column" role="search" >
@@ -18,7 +11,7 @@ export default function AppSerchByGenre({ setTempGenre, newSetGenre, tempGenre, 
             <select className="mx-2 rounded-2 p-1 mb-3" onChange={(e) => setTempGenre(e.target.value)}>
                 {
                     newSetGenre.map((element, index) =>
-                        <AppSelect
+                        <AppSelectGenre
                             key={index}
                             genre={element}
                         />

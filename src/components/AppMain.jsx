@@ -2,7 +2,7 @@
 import AppMainTitleList from './Rendering Apps/AppMainTitleList'
 import AppSearchByTitle from './Filters Apps/AppSearchByTitle'
 import AppSerchByGenre from './Filters Apps/AppSearchByGenre'
-
+import { useEffect } from 'react'
 
 export default function AppMain({
     movies,
@@ -14,6 +14,18 @@ export default function AppMain({
     setTempTitle,
     tempTitle
 }) {
+
+    useEffect(() => {
+        let tempFiltered = movies.filter(element => {
+            const tempFilterTitle = element.title.toLowerCase().includes(tempTitle.toLowerCase())
+            const tempFilterGenre = tempGenre === 'Tutte le Categorie' || element.genre.includes(tempGenre)
+            console.log(tempFilterGenre, tempFilterTitle)
+            return tempFilterTitle && tempFilterGenre
+        })
+        
+        setFiltered(tempFiltered)
+    }, [tempGenre, tempTitle])
+
     return (
         <main className='bg-light vh-100'>
             <div className="container">
@@ -23,20 +35,12 @@ export default function AppMain({
                             <div className="card-body">
                                 <AppSearchByTitle
                                     setTempTitle={setTempTitle}
-                                    setFiltered={setFiltered}
-                                    tempGenre={tempGenre}
-                                    newSetGenre={newSetGenre}
-                                    setTempGenre={setTempGenre}
-                                    movies={movies}
                                     tempTitle={tempTitle}
                                 />
                                 <hr />
                                 <AppSerchByGenre
                                     setTempGenre={setTempGenre}
                                     newSetGenre={newSetGenre}
-                                    tempGenre={tempGenre}
-                                    setFiltered={setFiltered}
-                                    movies={movies}
                                 />
                                 <hr />
                             </div>
