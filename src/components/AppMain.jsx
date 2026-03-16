@@ -1,7 +1,8 @@
 
-import AppMainTitleList from './Rendering Apps/AppMainTitleList'
-import AppSearchByTitle from './Filters Apps/AppSearchByTitle'
-import AppSerchByGenre from './Filters Apps/AppSearchByGenre'
+import AppMainTitleList from './ListApp/AppMainTitleList'
+import AppSearchByTitle from './FiltersApps/AppSearchByTitle'
+import AppSerchByGenre from './FiltersApps/AppSearchByGenre'
+import AppAddMovies from './ListApp/AppAddMovie'
 import { useEffect } from 'react'
 
 export default function AppMain({
@@ -49,6 +50,7 @@ export default function AppMain({
                     <div className="col">
                         <div className="card">
                             <div className="card-body">
+                                <AppAddMovies />
                                 <ul className="list-unstyled">
                                     {
                                         filtered.map(({ title, genre }, index) => (
