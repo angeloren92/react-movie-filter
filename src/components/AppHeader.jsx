@@ -1,9 +1,9 @@
 import AppNavbarMenu from './AppNavbarMenu'
-import AppNavbarSearch from './AppNavbarSearch'
+import AppNavbarSelect from './AppNavbarSelect'
 
-export default function AppHeader({genre}) {
+export default function AppHeader({ movies }) {
 
-
+    console.log(movies)
 
     return (
         <header>
@@ -15,10 +15,21 @@ export default function AppHeader({genre}) {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <AppNavbarMenu />
-                        <AppNavbarSearch genre={genre} />
+                        <form className="d-flex" role="search">
+                            <select className="mx-3">
+                                {
+                                    movies.map(({ genre }, index) =>
+                                        <AppNavbarSelect
+                                            key={index}
+                                            genre={genre} />
+                                    )
+                                }
+                            </select>
+                            <button className="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                     </div>
                 </div>
             </nav>
-        </header>
+        </header >
     )
 }

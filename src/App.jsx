@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <AppHeader genre={movies.genre}/>
+      <AppHeader movies={movies}/>
       <AppMain movies={movies} />
     </>
   )
