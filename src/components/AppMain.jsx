@@ -4,8 +4,16 @@ import AppSearchByTitle from './Filters Apps/AppSearchByTitle'
 import AppSerchByGenre from './Filters Apps/AppSearchByGenre'
 
 
-export default function AppMain({ movies, tempGenre, setFiltered, filtered, newSetGenre, setTempGenre }) {
-
+export default function AppMain({
+    movies,
+    tempGenre,
+    setFiltered,
+    filtered,
+    newSetGenre,
+    setTempGenre,
+    setTempTitle,
+    tempTitle
+}) {
     return (
         <main className='bg-light vh-100'>
             <div className="container">
@@ -13,20 +21,23 @@ export default function AppMain({ movies, tempGenre, setFiltered, filtered, newS
                     <div className="col-3">
                         <div className="card h-100">
                             <div className="card-body">
-                                <form className="d-flex flex-column" role="search" >
-                                    <AppSearchByTitle />
-                                </form>
+                                <AppSearchByTitle
+                                    setTempTitle={setTempTitle}
+                                    setFiltered={setFiltered}
+                                    tempGenre={tempGenre}
+                                    newSetGenre={newSetGenre}
+                                    setTempGenre={setTempGenre}
+                                    movies={movies}
+                                    tempTitle={tempTitle}
+                                />
                                 <hr />
-                                <label className='mb-2'>Scegli la Categoria</label>
-                                <form className="d-flex flex-column" role="search" >
-                                    <AppSerchByGenre
-                                        setTempGenre={setTempGenre}
-                                        newSetGenre={newSetGenre}
-                                        tempGenre={tempGenre}
-                                        setFiltered={setFiltered}
-                                        movies={movies}
-                                    />
-                                </form>
+                                <AppSerchByGenre
+                                    setTempGenre={setTempGenre}
+                                    newSetGenre={newSetGenre}
+                                    tempGenre={tempGenre}
+                                    setFiltered={setFiltered}
+                                    movies={movies}
+                                />
                                 <hr />
                             </div>
                         </div>
@@ -47,7 +58,6 @@ export default function AppMain({ movies, tempGenre, setFiltered, filtered, newS
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

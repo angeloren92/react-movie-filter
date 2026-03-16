@@ -16,12 +16,11 @@ function App() {
   newSetGenre.unshift('Tutte le Categorie')
   const [tempGenre, setTempGenre] = useState('Tutte le Categorie')
   const [filtered, setFiltered] = useState(movies)
+  const [tempTitle, setTempTitle] = useState('')
 
   return (
     <>
-      <AppHeader
-
-      />
+      <AppHeader/>
       <AppMain
         setTempGenre={setTempGenre}
         newSetGenre={newSetGenre}
@@ -29,6 +28,8 @@ function App() {
         tempGenre={tempGenre}
         filtered={filtered}
         setFiltered={setFiltered}
+        setTempTitle={setTempTitle}
+        tempTitle={tempTitle}
       />
     </>
   )
