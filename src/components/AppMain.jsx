@@ -1,3 +1,5 @@
+import AppMainTitleList from './AppMainTitleList'
+
 export default function AppMain({movies}) {
 
     return(
@@ -8,10 +10,11 @@ export default function AppMain({movies}) {
                         <ul className="list-unstyled">
                         {
                             movies.map(({title, genre}, index) => (
-                                <li key={index} className="my-3">
-                                    <h2 className="m-0">{title}</h2>
-                                    <small className="text-muted">{genre}</small>
-                                </li>
+                                <AppMainTitleList
+                                key={index}
+                                title={title}
+                                genre={genre}
+                                />    
                             ))
                         }
                         </ul>
