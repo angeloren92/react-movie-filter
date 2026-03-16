@@ -1,10 +1,14 @@
+import { useState } from 'react'
 import AppNavbarMenu from './AppNavbarMenu'
 import AppNavbarSelect from './AppNavbarSelect'
 
-export default function AppHeader({ movies }) {
+export default function AppHeader({ newSetGenre, setTempGenre, tempGenre}) {
 
-    const newSetGenre = Array.from(new Set(movies.map(element => element.genre)))
-    console.log(newSetGenre)
+
+    function handleGenreFilter(e) {
+        e.preventDefault()
+
+    }
 
     return (
         <header>
@@ -16,17 +20,17 @@ export default function AppHeader({ movies }) {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <AppNavbarMenu />
-                        <form className="d-flex" role="search">
-                            <select className="mx-3">
+                        <form className="d-flex" role="search" onSubmit={handleGenreFilter}>
+                            <select className="mx-3" onChange={(e) => setTempGenre(e.target.value)}>
                                 {
                                     newSetGenre.map((element, index) =>
                                         <AppNavbarSelect
                                             key={index}
-                                            genre={element} />
+                                            genre={element}
+                                        />
                                     )
                                 }
                             </select>
-                            <button className="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </div>
                 </div>

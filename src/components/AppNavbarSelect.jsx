@@ -2,7 +2,6 @@
 export default function AppNavbarSelect({ genre }) {
 
     return (
-        <option value="someOption">{genre}</option>
-
+        <option  value={genre}>{genre}</option>
     )
 }
