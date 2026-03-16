@@ -1,7 +1,13 @@
-export default function AppAddMovies({ newElement, setNewElement }) {
+import { useState } from "react"
+
+export default function AppAddMovies({setCopyMovies, copyMovies}) {
+
+    const [newElement, setNewElement] = useState({ title: '', genre: '' })
 
     function handleAddItem(e) {
         e.preventDefault()
+        setCopyMovies([newElement, ...copyMovies])
+        setNewElement({ title: '', genre: '' })
     }
 
     return (

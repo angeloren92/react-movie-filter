@@ -1,4 +1,4 @@
-
+import { useState } from 'react'
 import AppMainTitleList from './ListApp/AppMainTitleList'
 import AppSearchByTitle from './FiltersApps/AppSearchByTitle'
 import AppSerchByGenre from './FiltersApps/AppSearchByGenre'
@@ -6,28 +6,25 @@ import AppAddMovies from './ListApp/AppAddMovie'
 import { useEffect } from 'react'
 
 export default function AppMain({
-    movies,
-    tempGenre,
     setFiltered,
     filtered,
-    newSetGenre,
-    setTempGenre,
-    setTempTitle,
-    tempTitle,
-    setNewElement,
-    newElement
+    copyMovies,
+    setCopyMovies
 }) {
 
+    const [tempGenre, setTempGenre] = useState('Tutte le Categorie')
+    const [tempTitle, setTempTitle] = useState('')
+    const newSetGenre = Array.from(new Set(copyMovies.map(element => element.genre)))
+    newSetGenre.unshift('Tutte le Categorie')
+
     useEffect(() => {
-        let tempFiltered = movies.filter(element => {
+        let tempFiltered = copyMovies.filter(element => {
             const tempFilterTitle = element.title.toLowerCase().includes(tempTitle.toLowerCase())
             const tempFilterGenre = tempGenre === 'Tutte le Categorie' || element.genre.includes(tempGenre)
-            console.log(tempFilterGenre, tempFilterTitle)
             return tempFilterTitle && tempFilterGenre
         })
-
         setFiltered(tempFiltered)
-    }, [tempGenre, tempTitle])
+    }, [tempGenre, tempTitle, copyMovies])
 
     return (
         <main className='bg-light vh-100'>
@@ -53,12 +50,12 @@ export default function AppMain({
                         <div className="card">
                             <div className="card-body">
                                 <AppAddMovies
-                                    setNewElement={setNewElement}
-                                    newElement={newElement}
+                                    setCopyMovies={setCopyMovies}
+                                    copyMovies={copyMovies}
                                 />
                                 <ul className="list-unstyled">
                                     {
-                                        filtered.map(({ title, genre }, index) => (
+                                        ...filtered.map(({ title, genre }, index) => (
                                             <AppMainTitleList
                                                 key={index}
                                                 title={title}
