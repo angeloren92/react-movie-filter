@@ -1,4 +1,5 @@
 import AppMain from './components/AppMain'
+import AppHeader from './components/AppHeader'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <>
+      <AppHeader />
       <AppMain movies={movies} />
     </>
   )
