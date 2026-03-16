@@ -1,13 +1,4 @@
-import AppNavbarMenu from './AppNavbarMenu'
-import AppNavbarSelect from './AppNavbarSelect'
-
-export default function AppHeader({ newSetGenre, setTempGenre }) {
-
-
-    function handleGenreFilter(e) {
-        e.preventDefault()
-
-    }
+export default function AppHeader({ }) {
 
     return (
         <header>
@@ -18,19 +9,28 @@ export default function AppHeader({ newSetGenre, setTempGenre }) {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <AppNavbarMenu />
-                        <form className="d-flex" role="search" onSubmit={handleGenreFilter}>
-                            <select className="mx-3" onChange={(e) => setTempGenre(e.target.value)}>
-                                {
-                                    newSetGenre.map((element, index) =>
-                                        <AppNavbarSelect
-                                            key={index}
-                                            genre={element}
-                                        />
-                                    )
-                                }
-                            </select>
-                        </form>
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">Link</a>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><hr className="dropdown-divider" /></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>

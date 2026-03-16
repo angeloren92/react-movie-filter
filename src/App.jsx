@@ -20,10 +20,11 @@ function App() {
   return (
     <>
       <AppHeader
-        setTempGenre={setTempGenre}
-        newSetGenre={newSetGenre}
+
       />
       <AppMain
+        setTempGenre={setTempGenre}
+        newSetGenre={newSetGenre}
         movies={movies}
         tempGenre={tempGenre}
         filtered={filtered}
