@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import AppNavbarMenu from './AppNavbarMenu'
 import AppNavbarSelect from './AppNavbarSelect'
 
-export default function AppHeader({ newSetGenre, setTempGenre, tempGenre}) {
+export default function AppHeader({ newSetGenre, setTempGenre }) {
 
 
     function handleGenreFilter(e) {

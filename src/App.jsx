@@ -13,17 +13,22 @@ function App() {
     { title: 'Pulp Fiction', genre: 'Thriller' },
   ]
   const newSetGenre = Array.from(new Set(movies.map(element => element.genre)))
-  const [tempGenre, setTempGenre] = useState('')
-  console.log(tempGenre)
+  newSetGenre.unshift('Tutte le Categorie')
+  const [tempGenre, setTempGenre] = useState('Tutte le Categorie')
+  const [filtered, setFiltered] = useState(movies)
 
   return (
     <>
       <AppHeader
         setTempGenre={setTempGenre}
         newSetGenre={newSetGenre}
-        tempGenre={tempGenre}
       />
-      <AppMain movies={movies} />
+      <AppMain
+        movies={movies}
+        tempGenre={tempGenre}
+        filtered={filtered}
+        setFiltered={setFiltered}
+      />
     </>
   )
 }
