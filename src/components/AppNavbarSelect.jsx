@@ -1,9 +1,8 @@
-import { useState } from "react"
 
-export default function AppNavbarSelect({genre}) {
+export default function AppNavbarSelect({ genre }) {
 
     return (
-                <option value="someOption">{genre}</option>
+        <option value="someOption">{genre}</option>
 
     )
 }

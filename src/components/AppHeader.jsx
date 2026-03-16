@@ -3,7 +3,8 @@ import AppNavbarSelect from './AppNavbarSelect'
 
 export default function AppHeader({ movies }) {
 
-    console.log(movies)
+    const newSetGenre = Array.from(new Set(movies.map(element => element.genre)))
+    console.log(newSetGenre)
 
     return (
         <header>
@@ -18,10 +19,10 @@ export default function AppHeader({ movies }) {
                         <form className="d-flex" role="search">
                             <select className="mx-3">
                                 {
-                                    movies.map(({ genre }, index) =>
+                                    newSetGenre.map((element, index) =>
                                         <AppNavbarSelect
                                             key={index}
-                                            genre={genre} />
+                                            genre={element} />
                                     )
                                 }
                             </select>
