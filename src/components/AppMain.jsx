@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import AppMainTitleList from './AppMainTitleList'
 
 export default function AppMain({movies}) {
