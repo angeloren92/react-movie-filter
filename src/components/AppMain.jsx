@@ -1,18 +1,10 @@
-import { useEffect } from 'react'
-import AppMainTitleList from './AppMainTitleList'
-import AppSelect from './AppSelect'
+
+import AppMainTitleList from './Rendering Apps/AppMainTitleList'
+import AppSearchByTitle from './Filters Apps/AppSearchByTitle'
+import AppSerchByGenre from './Filters Apps/AppSearchByGenre'
 
 
 export default function AppMain({ movies, tempGenre, setFiltered, filtered, newSetGenre, setTempGenre }) {
-
-    useEffect(() => {
-        if (tempGenre !== 'Tutte le Categorie') {
-            setFiltered(movies.filter(element => element.genre === tempGenre))
-        } else {
-            setFiltered(movies)
-        }
-
-    }, [tempGenre])
 
     return (
         <main className='bg-light vh-100'>
@@ -22,27 +14,22 @@ export default function AppMain({ movies, tempGenre, setFiltered, filtered, newS
                         <div className="card h-100">
                             <div className="card-body">
                                 <form className="d-flex flex-column" role="search" >
-                                    <label className='mb-2'>Cerca Titolo</label>
-                                    <input className="mx-2 rounded-2 p-1" type="text" /> 
+                                    <AppSearchByTitle />
                                 </form>
                                 <hr />
                                 <label className='mb-2'>Scegli la Categoria</label>
                                 <form className="d-flex flex-column" role="search" >
-                                    <select className="mx-2 rounded-2 p-1" onChange={(e) => setTempGenre(e.target.value)}>
-                                        {
-                                            newSetGenre.map((element, index) =>
-                                                <AppSelect
-                                                    key={index}
-                                                    genre={element}
-                                                />
-                                            )
-                                        }
-                                    </select>
+                                    <AppSerchByGenre
+                                        setTempGenre={setTempGenre}
+                                        newSetGenre={newSetGenre}
+                                        tempGenre={tempGenre}
+                                        setFiltered={setFiltered}
+                                        movies={movies}
+                                    />
                                 </form>
                                 <hr />
                             </div>
                         </div>
-
                     </div>
                     <div className="col">
                         <div className="card">
