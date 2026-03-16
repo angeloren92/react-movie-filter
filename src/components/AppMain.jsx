@@ -13,7 +13,9 @@ export default function AppMain({
     newSetGenre,
     setTempGenre,
     setTempTitle,
-    tempTitle
+    tempTitle,
+    setNewElement,
+    newElement
 }) {
 
     useEffect(() => {
@@ -23,7 +25,7 @@ export default function AppMain({
             console.log(tempFilterGenre, tempFilterTitle)
             return tempFilterTitle && tempFilterGenre
         })
-        
+
         setFiltered(tempFiltered)
     }, [tempGenre, tempTitle])
 
@@ -50,7 +52,10 @@ export default function AppMain({
                     <div className="col">
                         <div className="card">
                             <div className="card-body">
-                                <AppAddMovies />
+                                <AppAddMovies
+                                    setNewElement={setNewElement}
+                                    newElement={newElement}
+                                />
                                 <ul className="list-unstyled">
                                     {
                                         filtered.map(({ title, genre }, index) => (
