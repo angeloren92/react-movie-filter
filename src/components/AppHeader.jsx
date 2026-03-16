@@ -1,7 +1,7 @@
 import AppNavbarMenu from './AppNavbarMenu'
 import AppNavbarSearch from './AppNavbarSearch'
 
-export default function AppHeader() {
+export default function AppHeader({genre}) {
 
 
 
@@ -15,7 +15,7 @@ export default function AppHeader() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <AppNavbarMenu />
-                        <AppNavbarSearch />
+                        <AppNavbarSearch genre={genre} />
                     </div>
                 </div>
             </nav>

@@ -1,8 +1,15 @@
-export default function AppNavbarSearch() {
+import { useState } from "react"
+
+export default function AppNavbarSearch({genre}) {
+
+    const [tempElement, setTempElement] = useState('') 
 
     return (
         <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <select className="mx-3">
+                <option value="someOption">Some option</option>
+                <option value="otherOption">Other option</option>
+            </select>
             <button className="btn btn-outline-success" type="submit">Search</button>
         </form>
     )
