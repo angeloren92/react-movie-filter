@@ -13,15 +13,12 @@ function App() {
     { title: 'Pulp Fiction', genre: 'Thriller' },
   ]
   const [copyMovies, setCopyMovies] = useState(movies)
-  const [filtered, setFiltered] = useState(copyMovies)
 
   return (
     <>
       <AppHeader/>
       <AppMain
         copyMovies={copyMovies}
-        filtered={filtered}
-        setFiltered={setFiltered}
         setCopyMovies={setCopyMovies}
       />
     </>

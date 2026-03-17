@@ -6,8 +6,6 @@ import AppAddMovies from './ListApp/AppAddMovie'
 import { useEffect } from 'react'
 
 export default function AppMain({
-    setFiltered,
-    filtered,
     copyMovies,
     setCopyMovies
 }) {
@@ -15,6 +13,7 @@ export default function AppMain({
     const [tempGenre, setTempGenre] = useState('Tutte le Categorie')
     const [tempTitle, setTempTitle] = useState('')
     const newSetGenre = Array.from(new Set(copyMovies.map(element => element.genre)))
+    const [filtered, setFiltered] = useState(copyMovies)
     newSetGenre.unshift('Tutte le Categorie')
 
     useEffect(() => {
